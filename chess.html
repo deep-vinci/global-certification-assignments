@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chess-board {
+            width: 90vh;
+            height: 90vh;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            border: 2px solid black;
+        }
+
+        .tilesN {
+            background-color: white;
+        }
+
+        .tiles2N {
+            background-color: black;
+        }
+
+
+        .tilesN:nth-child(2n) {
+            background-color: black;
+        }
+
+        .tiles2N:nth-child(2n) {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="chess-board"></div>
+    </div>
+
+    <script>
+        const chessBoard = document.querySelector(".chess-board");
+
+        for (let i = 1; i <= 8; i++) {
+            for (let j = 1; j <= 8; j++) {
+                let chessBoardTiles = document.createElement("div");
+                chessBoard.appendChild(chessBoardTiles);
+                if (i % 2 == 0) {
+                    chessBoardTiles.classList.add("tilesN")
+                } else {
+                    chessBoardTiles.classList.add("tiles2N")
+                };
+            }
+        }
+    </script>
+</body>
+
+</html>
